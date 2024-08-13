@@ -5,7 +5,7 @@
 import requests
 
 
-def number_of_subscribers(subreddit):
+def top_ten(subreddit):
     """Return the number of subscribers for a given Reddit subreddit."""
     if not isinstance(subreddit, str) or subreddit is None:
         return 0
