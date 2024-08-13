@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-"""Query the number of subscribers in a Reddit subreddit"""
+"""Query the number of subscribers in a Reddit subreddit""".
 
 import requests
 
+
 def number_of_subscribers(subreddit):
-    """Returns the number of subscribers for a given Reddit subreddit"""
+    """Return the number of subscribers for a given Reddit subreddit""".
     if subreddit is None or type(subreddit) is not str:
         return 0
 
@@ -22,4 +23,3 @@ def number_of_subscribers(subreddit):
     except requests.exceptions.RequestException:
         print('Request failed')
         return 0
-        
