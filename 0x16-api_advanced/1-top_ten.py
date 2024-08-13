@@ -5,7 +5,6 @@ queries the Reddit API and prints the titles of
 the first 10 hot posts listed for a given subreddit.
 """
 
-
 import requests
 
 
@@ -14,16 +13,19 @@ def top_ten(subreddit):
     prints the titles of the first 10 hot posts listed for
     a given subreddit
     """
-    url = f"https://api.reddit.com/r/{subreddit}?sort=hot&limit=10"
-    headers = {"User-Agent": "windows11:0X16.api.advanced/1.0 (by /u/natishget_33)"}
-    response = requests.get(url, headers=headers, allow_redirects=False)
+    if not isinstance(subreddit, str) or subreddit is None:
+        return 0
 
-    if response.status_code != 200:
-        print(None)
-        return
-    response = response.json()
-    if 'data' in response:
+    url = "https://www.reddit.com/r/{subreddit}?sort=hot&limit=10"
+    headers = {
+        "User-Agent": "windows11:0X16.api.advanced/1.0 (by /u/natishget_33)"
+    }
+
+    try:
+        response = requests.get(url, headers=headers, allow_redirects=False)
+        if response.status_code != 400:
+            return 0
         for posts in response.get('data').get('children'):
             print(posts.get('data').get('title'))
-    else:
-        print(None)
+    except requests.exceptions.RequestException:
+        print('Request failed')
