@@ -8,7 +8,7 @@ the first 10 hot posts listed for a given subreddit.
 import requests
 
 
-def number_of_subscribers(subreddit):
+def top_ten(subreddit):
     """
     prints the titles of the first 10 hot posts listed for
     a given subreddit
