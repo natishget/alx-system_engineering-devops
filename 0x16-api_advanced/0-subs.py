@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-"""query number of subscriber in a reddit"""
-
-"""importing request to make http request to a server"""
+"""
+ query number of subscriber in a reddit
+ importing request to make http request to a server
+"""
 import requests
 
 def number_of_subscribers(subreddit):
