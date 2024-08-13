@@ -1,16 +1,22 @@
 #!/usr/bin/python3
 
-"""Query the number of subscribers in a Reddit subreddit."""
+"""
+queries the Reddit API and prints the titles of
+the first 10 hot posts listed for a given subreddit.
+"""
 
 import requests
 
 
 def number_of_subscribers(subreddit):
-    """Return the number of subscribers for a given Reddit subreddit."""
+    """
+    prints the titles of the first 10 hot posts listed for
+    a given subreddit
+    """
     if not isinstance(subreddit, str) or subreddit is None:
         return 0
 
-    url = "https://www.reddit.com/r/{subreddit}/about.json"
+    url = "https://www.reddit.com/r/{subreddit}?sort=hot&limit=10"
     headers = {
         "User-Agent": "windows11:0X16.api.advanced/1.0 (by /u/natishget_33)"
     }
