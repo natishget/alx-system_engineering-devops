@@ -25,8 +25,10 @@ def top_ten(subreddit):
         response = requests.get(url, headers=headers, allow_redirects=False)
         if response.status_code != 400:
             return 0
-        result = response.json().get("data", {})
-        return result.get("subscribers", 0)
+        if 'data' in response:
+            for posts in response.get('data').get('children'):
+                print(posts.get('data').get('title'))
+        else:
+            print(None)
     except requests.exceptions.RequestException:
         print('Request failed')
-        return 0
